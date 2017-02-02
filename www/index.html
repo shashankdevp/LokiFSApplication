@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="css/ionic.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <!-- ionic/angularjs js -->
+    <script src="cordova.js"></script>
+    <script src="scripts/lib/ionic.bundle.min.js"></script>
+
+    <script src="scripts/lib/lokijs.js"></script>
+    <script src="scripts/lib/loki-angular.js"></script>
+    <script src="scripts/lib/lokiFileSystemAdapter.js"></script>
+
+    <!-- your app's js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/birthdayService.js"></script>
+    <script src="scripts/viewController.js"></script>
+
+</head>
+<body ng-app="starter">
+    <ion-pane ng-controller="viewController as vm">
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">Testing Data</h1>
+            <div class="buttons">
+                <button ng-click="vm.insertValues()" class="button">Add</button>
+            </div>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list>
+                <ion-item ng-repeat="d in vm.displayData track by $index">
+                    <div class="row">
+                        <div class="col col-20">{{d.Id}}</div>
+                        <div class="col col-40">{{d.name}}</div>
+                        <div class="col col-40">{{d.address}}</div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-pane>
+</body>
+</html>
